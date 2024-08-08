@@ -13,4 +13,6 @@ HOW TO RUN:
 Then you are good to go
 Navigate to http://localhost:8081, there you go enter any url it will give you shorten version of it
 
+Below image shows with the help of nginx I have achieved loadbalancing which take care of availablilty of the servers
+![image](https://github.com/user-attachments/assets/50433406-27a7-4a9b-9f71-54f4556d44f5)
 
