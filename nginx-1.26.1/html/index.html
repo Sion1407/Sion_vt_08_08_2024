@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener Service</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    h1, h2 {
+        color: #333;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    button {
+        padding: 10px 15px;
+        background: #007bff;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+    p {
+        margin: 10px 0;
+    }
+    .result {
+        font-weight: bold;
+    }
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the URL Shortener Service</h1>
+    <p>Use our API to shorten your URLs and retrieve them.</p>
+
+    <h2>Shorten a URL</h2>
+    <form id="shortenForm" method="post">
+        <label for="destinationUrl">Destination URL:</label>
+        <input type="text" id="destinationUrl" name="destinationUrl" required>
+        <button type="button" onclick="shortenUrl()">Shorten URL</button>
+    </form>
+
+    <h2>Get Destination URL</h2>
+    <form id="getUrlForm" method="get">
+        <label for="shortUrlGet">Short URL:</label>
+        <input type="text" id="shortUrlGet" name="shortUrl" required>
+        <button type="button" onclick="getDestinationUrl()">Get Destination URL</button>
+    </form>
+
+    <p id="result" class="result"></p>
+</div>
+
+<script>
+    async function shortenUrl() {
+    const destinationUrl = document.getElementById('destinationUrl').value;
+    const response = await fetch(`/api/url/shorten?destinationUrl=${encodeURIComponent(destinationUrl)}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+
+    const data = await response.json(); 
+
+    if (data.id === 'SUCCESS') {
+        document.getElementById('result').innerHTML = `Shortened URL: <a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
+    } else {
+        document.getElementById('result').innerText = 'Error: ' + (data.message || 'Failed to shorten URL');
+        document.getElementById('result').className = 'result error';  // Apply error styling
+    }
+}
+
+async function getDestinationUrl() {
+    const shortUrl = document.getElementById('shortUrlGet').value;
+    const response = await fetch(`/api/url/destination?shortUrl=${encodeURIComponent(shortUrl)}`);
+    const originalUrl = await response.text();
+    
+    if (response.ok) {
+        document.getElementById('result').innerHTML = `Destination URL: <a href="${originalUrl}" target="_blank">${originalUrl}</a>`;
+    } else {
+        document.getElementById('result').innerText = 'Error: Could not retrieve destination URL';
+        document.getElementById('result').className = 'result error';  // Apply error styling
+    }
+}
+
+</script>
+</body>
+</html>

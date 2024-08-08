@@ -1,0 +1,26 @@
+2024/08/08 01:02:07 [error] 15392#7416: *1 CreateFile() "D:\nginx-1.26.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/08/08 01:04:29 [notice] 18988#16660: signal process started
+2024/08/08 01:06:33 [notice] 5044#2144: signal process started
+2024/08/08 19:30:53 [emerg] 13920#4840: "upstream" directive is not allowed here in D:\URLShortner\nginx-1.26.1/conf/nginx.conf:1
+2024/08/08 19:32:34 [emerg] 13392#8108: no "events" section in configuration
+2024/08/08 19:33:52 [notice] 17080#3368: signal process started
+2024/08/08 20:29:30 [notice] 16488#5540: signal process started
+2024/08/08 20:33:37 [emerg] 20316#25540: invalid number of arguments in "root" directive in D:\URLShortner\nginx-1.26.1/conf/nginx.conf:19
+2024/08/08 20:36:45 [notice] 21588#11368: signal process started
+2024/08/08 20:37:14 [error] 20748#24748: *1 CreateFile() "D:/URLShortner/nginx-1.26.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2024/08/08 20:37:47 [error] 20748#24748: *1 CreateFile() "D:/URLShortner/nginx-1.26.1/html/shorten" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "POST /shorten HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2024/08/08 21:14:02 [notice] 9112#5736: signal process started
+2024/08/08 21:19:58 [notice] 6428#9864: signal process started
+2024/08/08 21:28:45 [notice] 21572#8164: signal process started
+2024/08/08 21:29:40 [notice] 22240#24008: signal process started
+2024/08/08 21:34:08 [notice] 25420#23452: signal process started
+2024/08/08 21:40:26 [notice] 3944#23500: signal process started
+2024/08/08 22:06:33 [notice] 10348#25044: signal process started
+2024/08/08 22:24:04 [notice] 19600#15508: signal process started
+2024/08/08 22:33:11 [notice] 20748#19420: signal process started
+2024/08/08 22:45:47 [notice] 5192#8148: signal process started
+2024/08/08 22:54:26 [notice] 23136#23604: signal process started
+2024/08/08 23:00:16 [notice] 21096#22144: signal process started
+2024/08/08 23:01:23 [notice] 5908#2524: signal process started
+2024/08/08 23:09:26 [notice] 25484#24592: signal process started
+2024/08/08 23:20:42 [notice] 16204#12188: signal process started
